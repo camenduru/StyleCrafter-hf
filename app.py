@@ -180,9 +180,9 @@ demo_exaples_image = [
 ]
 demo_exaples_video = [
     ['eval_data/craft_2.png', 'City street at night with bright lights and busy traffic.', 'video', 123, 1.0, 50],
-    ['eval_data/anime_1.jpg', 'A field of sunflowers on a sunny day.', 'video', 123, 1.0, 50],
-    ['eval_data/ink_2.jpeg', 'A knight riding a horse through a field.', 'video', 123, 1.0, 50],
-    ['eval_data/oil_paint_2.jpg', 'A street performer playing the guitar.', 'video', 121, 1.0, 50],
+    ['eval_data/anime_1.jpg', 'A field of sunflowers on a sunny day.', 'video', 122, 1.0, 50],
+    ['eval_data/ink_2.jpeg', 'A knight riding a horse through a field.', 'video', 1, 1.0, 50],
+    ['eval_data/oil_paint_2.jpg', 'A street performer playing the guitar.', 'video', 123, 1.0, 50],
     ['eval_data/icon_1.png', 'A campfire surrounded by tents.', 'video', 123, 1.0, 50],
 ]
 css = """
