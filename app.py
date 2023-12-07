@@ -13,6 +13,7 @@ from einops import repeat
 import torchvision.transforms as transforms
 from torchvision.utils import make_grid
 from utils.utils import instantiate_from_config
+from PIL import Image
 
 from collections import OrderedDict
 
@@ -108,6 +109,7 @@ def infer(image, prompt, infer_type='image', seed=123, style_strength=1.0, steps
         torchvision.transforms.Lambda(lambda x: x * 2. - 1.),
     ])
 
+    image = Image.fromarray(image.astype('uint8'), 'RGB')
     style_img = style_transforms(image).unsqueeze(0).cuda()
     style_cond = model.get_batch_style(style_img)
     append_to_context = model.adapter(style_cond)
