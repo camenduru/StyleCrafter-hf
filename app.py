@@ -162,10 +162,10 @@ def read_content(file_path: str) -> str:
 
 demo_exaples = [
     ['eval_data/3d_1.png', 'A bouquet of flowers in a vase.', 'image', 123, 1.0, 50],
-    ['eval_data/craft_1.png', 'A modern cityscape with towering skyscrapers.', 'image', 124, 1.0, 50],
+    ['eval_data/craft_1.jpg', 'A modern cityscape with towering skyscrapers.', 'image', 124, 1.0, 50],
     ['eval_data/digital_art_2.jpeg', 'A lighthouse standing tall on a rocky coast.', 'image', 123, 1.0, 50],
     ['eval_data/oil_paint_2.jpg', 'A man playing the guitar on a city street.', 'image', 123, 1.0, 50],
-    ['eval_data/craft_2.jpg', 'City street at night with bright lights and busy traffic.', 'video', 123, 1.0, 50],
+    ['eval_data/craft_2.png', 'City street at night with bright lights and busy traffic.', 'video', 123, 1.0, 50],
     ['eval_data/anime_1.jpg', 'A field of sunflowers on a sunny day.', 'video', 123, 1.0, 50],
     ['eval_data/ink_2.jpeg', 'A knight riding a horse through a field.', 'video', 123, 1.0, 50],
     ['eval_data/oil_paint_2.jpg', 'A street performer playing the guitar.', 'video', 121, 1.0, 50],
