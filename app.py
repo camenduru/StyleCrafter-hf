@@ -7,7 +7,7 @@ import time
 from omegaconf import OmegaConf
 import torch
 import torchvision
-from pytorch_lightning import seed_everything
+import numpy as np
 from huggingface_hub import hf_hub_download
 from einops import repeat
 import torchvision.transforms as transforms
@@ -19,6 +19,16 @@ from collections import OrderedDict
 
 sys.path.insert(0, "scripts/evaluation")
 from lvdm.models.samplers.ddim import DDIMSampler, DDIMStyleSampler
+
+
+def seed_everything(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.benchmark = False 
+    torch.backends.cudnn.deterministic = True
+    torch.cuda.manual_seed_all(seed)
 
 
 def load_model_checkpoint(model, ckpt):
@@ -177,9 +187,9 @@ demo_exaples_video = [
 ]
 css = """
 #input_img {max-height: 320px;} 
-#input_img [data-testid="image"], #input_img [data-testid="image"] > div{max-height: 320px; max-width: 512px;}
+#input_img [data-testid="image"], #input_img [data-testid="image"] > div{max-height: 320px;}
 #output_img {max-height: 400px;}
-#output_vid {max-height: 320px;}
+#output_vid {max-height: 320px; max-width: 512px;}
 """
 
 with gr.Blocks(analytics_enabled=False, css=css) as demo_iface:
