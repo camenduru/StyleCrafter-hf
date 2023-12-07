@@ -162,11 +162,13 @@ def read_content(file_path: str) -> str:
     return content
 
 
-demo_exaples = [
+demo_exaples_image = [
     ['eval_data/3d_1.png', 'A bouquet of flowers in a vase.', 'image', 123, 1.0, 50],
     ['eval_data/craft_1.jpg', 'A modern cityscape with towering skyscrapers.', 'image', 124, 1.0, 50],
     ['eval_data/digital_art_2.jpeg', 'A lighthouse standing tall on a rocky coast.', 'image', 123, 1.0, 50],
     ['eval_data/oil_paint_2.jpg', 'A man playing the guitar on a city street.', 'image', 123, 1.0, 50],
+]
+demo_exaples_video = [
     ['eval_data/craft_2.png', 'City street at night with bright lights and busy traffic.', 'video', 123, 1.0, 50],
     ['eval_data/anime_1.jpg', 'A field of sunflowers on a sunny day.', 'video', 123, 1.0, 50],
     ['eval_data/ink_2.jpeg', 'A knight riding a horse through a field.', 'video', 123, 1.0, 50],
@@ -174,14 +176,15 @@ demo_exaples = [
     ['eval_data/icon_1.png', 'A campfire surrounded by tents.', 'video', 123, 1.0, 50],
 ]
 css = """
-#input_img {max-height: 512px} 
-#output_vid {max-width: 512px;}
+#input_img {max-height: 400px} 
+#input_img [data-testid="image"], #input_img [data-testid="image"] > div{max-height: 400px}
+#output_vid {max-height: 400px;}
 """
 
 with gr.Blocks(analytics_enabled=False, css=css) as demo_iface:
     gr.HTML(read_content("header.html"))
     
-    with gr.Tab(label='Stylized Generation'):
+    with gr.Tab(label='Stylized Image Generation'):
         with gr.Column():
             with gr.Row():
                 with gr.Column():
@@ -194,13 +197,42 @@ with gr.Blocks(analytics_enabled=False, css=css) as demo_iface:
                         input_style_strength = gr.Slider(minimum=0.0, maximum=2.0, step=0.01, label='Style Strength', value=1.0)
                     with gr.Row():
                         input_step = gr.Slider(minimum=1, maximum=75, step=1, elem_id="i2v_steps", label="Sampling steps", value=50)
-                        input_type = gr.Radio(choices=["image", "video"], label="Generation Type", value="image")
+                        input_type = gr.Radio(choices=["image"], label="Generation Type", value="image")
+                    input_end_btn = gr.Button("Generate")
+                # with gr.Tab(label='Result'):
+                with gr.Row():
+                    output_result = gr.Image(label="Generated Results",elem_id="output_vid", show_share_button=True)
+
+            gr.Examples(examples=demo_exaples_image,
+                        inputs=[input_style_ref, input_prompt, input_type, input_seed, input_style_strength, input_step],
+                        outputs=[output_result],
+                        fn = infer,
+            )
+        input_end_btn.click(inputs=[input_style_ref, input_prompt, input_type, input_seed, input_style_strength, input_step],
+                        outputs=[output_result],
+                        fn = infer
+        )
+
+    with gr.Tab(label='Stylized Video Generation'):
+        with gr.Column():
+            with gr.Row():
+                with gr.Column():
+                    with gr.Row():
+                        input_style_ref = gr.Image(label="Style Reference",elem_id="input_img")
+                    with gr.Row():
+                        input_prompt = gr.Text(label='Prompts')
+                    with gr.Row():
+                        input_seed = gr.Slider(label='Random Seed', minimum=0, maximum=1000, step=1, value=123)
+                        input_style_strength = gr.Slider(minimum=0.0, maximum=2.0, step=0.01, label='Style Strength', value=1.0)
+                    with gr.Row():
+                        input_step = gr.Slider(minimum=1, maximum=75, step=1, elem_id="i2v_steps", label="Sampling steps", value=50)
+                        input_type = gr.Radio(choices=["video"], label="Generation Type", value="video")
                     input_end_btn = gr.Button("Generate")
                 # with gr.Tab(label='Result'):
                 with gr.Row():
                     output_result = gr.Video(label="Generated Results",elem_id="output_vid",autoplay=True,show_share_button=True)
 
-            gr.Examples(examples=demo_exaples,
+            gr.Examples(examples=demo_exaples_video,
                         inputs=[input_style_ref, input_prompt, input_type, input_seed, input_style_strength, input_step],
                         outputs=[output_result],
                         fn = infer,

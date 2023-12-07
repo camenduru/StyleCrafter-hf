@@ -77,14 +77,14 @@ model:
     cond_stage_config:
       target: lvdm.modules.encoders.condition.FrozenOpenCLIPEmbedder
       params:
-        version: checkpoints/open_clip/CLIP-ViT-H-14-laion2B-s32B-b79K/open_clip_pytorch_model.bin
+        # version: checkpoints/open_clip/CLIP-ViT-H-14-laion2B-s32B-b79K/open_clip_pytorch_model.bin
         freeze: true
         layer: "penultimate"
 
     style_stage_config:
       target: lvdm.modules.encoders.condition.FrozenOpenCLIPImageEmbedder
       params:
-        version: checkpoints/open_clip/CLIP-ViT-H-14-laion2B-s32B-b79K/open_clip_pytorch_model.bin
+        # version: checkpoints/open_clip/CLIP-ViT-H-14-laion2B-s32B-b79K/open_clip_pytorch_model.bin
         freeze: true
         only_cls: false
         use_proj: false
