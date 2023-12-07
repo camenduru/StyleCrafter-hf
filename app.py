@@ -176,9 +176,10 @@ demo_exaples_video = [
     ['eval_data/icon_1.png', 'A campfire surrounded by tents.', 'video', 123, 1.0, 50],
 ]
 css = """
-#input_img {max-height: 320px;} 
+#input_img {max-height: 320px; max-width: 512px;} 
 #input_img [data-testid="image"], #input_img [data-testid="image"] > div{max-height: 320px; max-width: 512px;}
-#output_vid {max-height: 400px;}
+#output_img {max-height: 512px; max-width: 512px;}
+#output_vid {max-height: 320px; max-width: 512px;}
 """
 
 with gr.Blocks(analytics_enabled=False, css=css) as demo_iface:
@@ -193,7 +194,7 @@ with gr.Blocks(analytics_enabled=False, css=css) as demo_iface:
                     with gr.Row():
                         input_prompt = gr.Text(label='Prompts')
                     with gr.Row():
-                        input_seed = gr.Slider(label='Random Seed', minimum=0, maximum=10000, step=1, value=123)
+                        input_seed = gr.Slider(label='Random Seed', minimum=0, maximum=1000, step=1, value=123)
                         input_style_strength = gr.Slider(minimum=0.0, maximum=2.0, step=0.01, label='Style Strength', value=1.0)
                     with gr.Row():
                         input_step = gr.Slider(minimum=1, maximum=75, step=1, elem_id="i2v_steps", label="Sampling steps", value=50)
@@ -201,7 +202,7 @@ with gr.Blocks(analytics_enabled=False, css=css) as demo_iface:
                     input_end_btn = gr.Button("Generate")
                 # with gr.Tab(label='Result'):
                 with gr.Row():
-                    output_result = gr.Image(label="Generated Results",elem_id="output_vid", show_share_button=True)
+                    output_result = gr.Image(label="Generated Results",elem_id="output_img", show_share_button=True)
 
             gr.Examples(examples=demo_exaples_image,
                         inputs=[input_style_ref, input_prompt, input_type, input_seed, input_style_strength, input_step],
