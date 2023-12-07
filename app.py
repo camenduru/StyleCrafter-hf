@@ -176,8 +176,8 @@ demo_exaples_video = [
     ['eval_data/icon_1.png', 'A campfire surrounded by tents.', 'video', 123, 1.0, 50],
 ]
 css = """
-#input_img {max-height: 400px} 
-#input_img [data-testid="image"], #input_img [data-testid="image"] > div{max-height: 400px}
+#input_img {max-height: 320px;} 
+#input_img [data-testid="image"], #input_img [data-testid="image"] > div{max-height: 320px; max-width: 512px;}
 #output_vid {max-height: 400px;}
 """
 
