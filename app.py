@@ -177,7 +177,7 @@ demo_exaples_image = [
     ['eval_data/digital_art_2.jpeg', 'A lighthouse standing tall on a rocky coast.', 'image', 123, 1.0, 50],
     ['eval_data/oil_paint_2.jpg', 'A man playing the guitar on a city street.', 'image', 123, 1.0, 50],
     ['eval_data/ink_2.jpeg', 'A knight riding a horse through a field.', 'image', 123, 1.0, 50],
-    ['eval_data/digital_aer_1.jpg', 'A telescope pointed at the stars.', 'image', 122, 1.0, 50],
+    ['eval_data/digital_art_1.jpg', 'A telescope pointed at the stars.', 'image', 122, 1.0, 50],
     ['eval_data/3d_1.png', 'A bouquet of flowers in a vase.', 'image', 123, 1.0, 50],
 ]
 demo_exaples_video = [
