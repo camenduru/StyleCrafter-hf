@@ -173,17 +173,20 @@ def read_content(file_path: str) -> str:
 
 
 demo_exaples_image = [
-    ['eval_data/3d_1.png', 'A bouquet of flowers in a vase.', 'image', 123, 1.0, 50],
     ['eval_data/craft_1.jpg', 'A modern cityscape with towering skyscrapers.', 'image', 124, 1.0, 50],
     ['eval_data/digital_art_2.jpeg', 'A lighthouse standing tall on a rocky coast.', 'image', 123, 1.0, 50],
     ['eval_data/oil_paint_2.jpg', 'A man playing the guitar on a city street.', 'image', 123, 1.0, 50],
+    ['eval_data/ink_2.jpeg', 'A knight riding a horse through a field.', 'image', 123, 1.0, 50],
+    ['eval_data/digital_aer_1.jpg', 'A telescope pointed at the stars.', 'image', 122, 1.0, 50],
+    ['eval_data/3d_1.png', 'A bouquet of flowers in a vase.', 'image', 123, 1.0, 50],
 ]
 demo_exaples_video = [
-    ['eval_data/craft_2.png', 'City street at night with bright lights and busy traffic.', 'video', 123, 1.0, 50],
-    ['eval_data/anime_1.jpg', 'A field of sunflowers on a sunny day.', 'video', 122, 1.0, 50],
     ['eval_data/ink_2.jpeg', 'A knight riding a horse through a field.', 'video', 1, 1.0, 50],
-    ['eval_data/oil_paint_2.jpg', 'A street performer playing the guitar.', 'video', 123, 1.0, 50],
-    ['eval_data/icon_1.png', 'A campfire surrounded by tents.', 'video', 123, 1.0, 50],
+    ['eval_data/anime_1.jpg', 'A field of sunflowers on a sunny day.', 'video', 122, 1.0, 50],
+    ['eval_data/oil_paint_2.jpg', 'A chef preparing meals in kitchen.', 'video', 122, 1.0, 50],
+    ['eval_data/digital_art_2.jpeg', 'A campfire surrounded by tents.', 'video', 124, 1.0, 50],
+    ['eval_data/craft_2.png', 'City street at night with bright lights and busy traffic.', 'video', 123, 1.0, 50],
+    ['eval_data/line_2.jpeg', 'A rocketship heading towards the moon.', 'video', 123, 1.0, 50],
 ]
 css = """
 #input_img {max-height: 320px;} 
